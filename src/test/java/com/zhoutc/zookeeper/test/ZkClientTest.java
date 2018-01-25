@@ -88,7 +88,6 @@ public class ZkClientTest {
     @Test
     public void testZkClient5() throws Exception{
         ZkClient zkClient = new ZkClient("10.37.18.106:2181", timeOut,null);
-        System.out.println(zkClient.addNodeData("/monitor/dianshangwuxian_suyun_pushstrategy_service/offline/server/10.37.18.44","",CreateMode.EPHEMERAL));
     }
 
 
