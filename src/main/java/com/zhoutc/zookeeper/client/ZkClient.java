@@ -22,17 +22,53 @@ public class ZkClient {
     private static final int WAIT_TIME = 10000;
     private CountDownLatch connectedSignal = new CountDownLatch(1);
     private ZooKeeper zookeeper;
+    /**
+     * 客户端连接事件watcher
+     */
     private Watcher watcher;
+    /**
+     * zookeeper连接地址
+     */
     private String url;
+    /**
+     * 客户端连接超时时间
+     */
     private int sessionTimeout;
+    /**
+     * 客户端连接是否正常
+     */
     private volatile boolean normal;
+    /**
+     * 客户端是否正在重试恢复连接
+     */
     private volatile boolean retrying;
+    /**
+     * 是否需要客户端在重新连接后自动恢复watcher
+     */
     private volatile boolean autoReWatch;
+    /**
+     * 连接异常计数器
+     */
     private AtomicInteger errorCount = new AtomicInteger(0);
+    /**
+     * 最大异常数开始重连
+     */
     private int RECOVERY_COUNT = 10;
+    /**
+     * zookeeper data watchers
+     */
     private Map<String, Set<Watcher>> dataWatchers = new HashMap<>();
+    /**
+     * zookeeper exists watchers
+     */
     private Map<String, Set<Watcher>> existWatchers = new HashMap<>();
+    /**
+     * zookeeper child watchers
+     */
     private Map<String, Set<Watcher>> childWatchers = new HashMap<>();
+    /**
+     * zookeeper重连恢复点
+     */
     private List<Recoverable> recoverPoints = new ArrayList<>();
 
     public ZkClient(String url, int sessionTimeout) {
