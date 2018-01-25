@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Description:
+ * Description: zookeeper连接事件监听
  * Author:Zhoutc
  * Date:2017-12-20 15:34
  */

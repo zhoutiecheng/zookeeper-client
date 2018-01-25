@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Description:
+ * Description:zookeeper客户端，实现了基本操作
  * Author:Zhoutc
  * Date:2017-12-20 15:21
  */
